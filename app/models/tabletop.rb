@@ -4,6 +4,6 @@ class Tabletop < ApplicationRecord
 
   validates_presence_of :seats
 
-  validates_presence_of :seats
+  validates_presence_of :table_name
 
 end
