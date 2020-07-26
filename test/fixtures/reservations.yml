@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  res_name: MyString
+  party_size: 1
+  res_day: MyString
+  res_time: MyString
+
+two:
+  res_name: MyString
+  party_size: 1
+  res_day: MyString
+  res_time: MyString
