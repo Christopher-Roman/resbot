@@ -1,0 +1,12 @@
+<h1>Test for Respage</h1>
+<%= render :partial => "reservations/new" %>
+
+<% @reservations.each do |reservation| %>
+	<div class="card" style="width: 18rem;">
+	  <div class="card-body">
+	  	<h5 class="card-title"><%=reservation.res_name%></h5>
+	    <p class="card-text">Party of <%=reservation.party_size%> at <%=reservation.res_time%></p><br>
+	    <p class="card-text">Table: <%=reservation.tabletops_id%></p>
+	  </div>
+	</div>
+<%end%>
