@@ -1,12 +1,47 @@
-<h1>Test for Respage</h1>
-<%= render :partial => "reservations/new" %>
-
-<% @reservations.each do |reservation| %>
-	<div class="card" style="width: 18rem;">
-	  <div class="card-body">
-	  	<h5 class="card-title"><%=reservation.res_name%></h5>
-	    <p class="card-text">Party of <%=reservation.party_size%> at <%=reservation.res_time%></p><br>
-	    <p class="card-text">Table: <%=reservation.tabletops_id%></p>
-	  </div>
+<div class="container">
+	<div style="text-align: center;">
+		<h1>Welcome to ResBot</h1>
 	</div>
-<%end%>
+	<div class="col" style="text-align: center;">
+		<div class="row" >
+				<div class="card bg-dark mb-3">
+					<div class="card-body">
+		  				<% @reservations.each do |reservation| %>
+							<div class="card bg-secondary text-white" style="width: 18rem; padding-top: 5px;">
+							  <div class="card-body">
+							  	<h5 class="card-title"><%=reservation.res_name%> on <%=reservation.res_day%></h5>
+							    <p class="card-text">Party of <%=reservation.party_size%> at <%=reservation.res_time%></p><br>
+							    <p class="card-text">Table: <%=reservation.tabletops_id%></p>
+							  </div>
+							</div>
+						<%end%>
+					</div>
+				</div>
+			<div class="col">
+				<div class="card text-white bg-dark mb-3">
+					<div class="card-title"><h1>Add Reservation</h1></div>
+		  			<div class="card-body">	
+		  				<div class="row">
+		  					<div class="col">
+		  						<div class="partial">	
+		  				       		<%= render :partial => "reservations/new" %>
+		  						</div>
+		  					</div>
+		  					<div class="col">
+		  						<% flash.each do |type, msg| %>
+								  <div class="alert alert-info">
+								    <%= msg %>
+								  </div>
+								<% end %>	
+		  					</div>
+		  				</div>
+		  				
+		  			</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+

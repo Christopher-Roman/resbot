@@ -1,0 +1,11 @@
+body {
+	background-color: #555555;
+}
+
+body { 
+	background-image: url(<%= asset_path 'image.png' %>) 
+}
+
+.partial {
+	padding-left: 20px
+}
