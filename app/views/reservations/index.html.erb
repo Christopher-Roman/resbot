@@ -1,13 +1,13 @@
 <div class="container">
 	<div style="text-align: center;">
-		<h1>Welcome to ResBot</h1>
+		<h1 class="text-white">Welcome to ResBot</h1>
 	</div>
 	<div class="col" style="text-align: center;">
 		<div class="row" >
 				<div class="card bg-dark mb-3">
 					<div class="card-body">
 		  				<% @reservations.each do |reservation| %>
-							<div class="card bg-secondary text-white" style="width: 18rem; padding-top: 5px;">
+							<div class="card bg-secondary text-white"style="width: 18rem; padding-top: 5px;">
 							  <div class="card-body">
 							  	<h5 class="card-title"><%=reservation.res_name%> on <%=reservation.res_day%></h5>
 							    <p class="card-text">Party of <%=reservation.party_size%> at <%=reservation.res_time%></p><br>

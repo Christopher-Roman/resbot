@@ -17,12 +17,12 @@ class ReservationsController < ApplicationController
       if @reservation.save
         redirect_to '/reservations', notice: "Reservation confirmed!"
       else
-        redirect_to '/reservations', error: "Error occured during booking process, please try again."
+        redirect_to '/reservations', warning: "Error occured during booking process, please try again."
       end
     elsif !table_id
       redirect_to '/reservations', warning: "There are no tables available for the selected date and time."
     else
-      redirect_to '/reservations', error: "An error occurred after attempting to confirm reservation method"
+      redirect_to '/reservations', warning: "An error occurred after attempting to confirm reservation method"
     end
   end
 
