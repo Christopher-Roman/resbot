@@ -13,14 +13,14 @@ class ReservationsController < ApplicationController
     if table_id
       @reservation = Reservation.new(res_name:params[:res_name], res_time:params[:res_time], party_size:params[:party_size], res_day:params[:res_day], tabletops_id:table_id)
       if @reservation.save
-        redirect_to '/reservations', notice: "Reservation confirmed!"
+        redirect_to '/', notice: "Reservation confirmed!"
       else
-        redirect_to '/reservations', error: "Error occured during booking process, please try again."
+        redirect_to '/', alert: "Error occured during booking process, please try again."
       end
     elsif !table_id
-      redirect_to '/reservations', error: "There are no tables available for the selected date and time."
+      redirect_to '/', alert: "There are no tables available for the selected date and time."
     else
-      redirect_to '/reservations', error: "An error occurred after attempting to confirm reservation method"
+      redirect_to '/', alert: "An error occurred after attempting to confirm reservation method"
     end
   end
 
