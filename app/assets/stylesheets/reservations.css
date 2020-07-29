@@ -6,6 +6,30 @@ body {
 	background-image: url(<%= asset_path 'image.png' %>) 
 }
 
+#app-title {
+	text-align: center; padding-top: 30px
+}
+
 .partial {
 	padding-left: 20px
+}
+
+#reservations-otb {
+	overflow-y:auto; 
+	overflow-x:hidden;
+	max-height:545px; 
+	min-width: 20rem;
+}
+
+#individual-res-card {
+	width: 18rem; 
+	padding-top: 5px;
+}
+
+#first-reservation-col {
+	padding-top: 30px;
+}
+
+#second-reservation-col {
+	text-align: center;
 }

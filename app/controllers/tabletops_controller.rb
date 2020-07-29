@@ -1,7 +1,5 @@
 class TabletopsController < ApplicationController
 
-  skip_before_action :verify_authenticity_token
-
   def index
     @tabletops = Tabletop.all
     puts @tabletops
@@ -24,7 +22,7 @@ class TabletopsController < ApplicationController
   private 
 
   def tabletop_params
-    params.permit(:seats, :table_name)
+    params.require(:tabletop)permit(:seats, :table_name)
   end
 
 end

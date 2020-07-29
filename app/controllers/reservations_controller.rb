@@ -1,6 +1,4 @@
 class ReservationsController < ApplicationController
- 
-  skip_before_action :verify_authenticity_token
 
   def index
     @reservations = Reservation.order('res_day DESC')
@@ -29,7 +27,7 @@ class ReservationsController < ApplicationController
   private 
 
   def reservation_params
-    params.permit(:res_name, :res_time, :party_size, :res_day, :tabletops_id)
+    params.require(:reservation).permit(:res_name, :res_time, :party_size, :res_day, :tabletops_id)
   end
 
   def res_list_by day, time

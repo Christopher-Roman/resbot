@@ -1,14 +1,14 @@
 <div class="container">
-	<div style="text-align: center; padding-top: 30px">
+	<div id="app-title">
 		<h1 class="text-white">Welcome to ResBot</h1>
 	</div>
-	<div class="col" style="padding-top: 30px">
-		<div class="col" style="text-align: center;">
-			<div class="row" style="overflow-x:hidden;" >
-					<div class="card bg-dark mb-3" style=" overflow-y:auto; max-height:545px">
+	<div id="first-reservation-col"  class="col">
+		<div id="second-reservation-col" class="col">
+			<div class="row">
+					<div id="reservations-otb" class="card bg-dark mb-3">
 						<div class="card-body">
 			  				<% @reservations.each do |reservation| %>
-								<div class="card bg-secondary text-white"style="width: 18rem; padding-top: 5px;">
+								<div id="individual-res-card" class="card bg-secondary text-white">
 								  <div class="card-body">
 								  	<h5 class="card-title"><%=reservation.res_name%> on <%=reservation.res_day%></h5>
 								    <p class="card-text">Party of <%=reservation.party_size%> at <%=reservation.res_time%></p>
@@ -46,7 +46,6 @@
 							          <% end %>	
 			  					</div>
 			  				</div>
-			  				
 			  			</div>
 					</div>
 				</div>
