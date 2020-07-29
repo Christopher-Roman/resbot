@@ -22,7 +22,7 @@ class TabletopsController < ApplicationController
   private 
 
   def tabletop_params
-    params.require(:tabletop)permit(:seats, :table_name)
+    params.require(:tabletop).permit(:seats, :table_name)
   end
 
 end
