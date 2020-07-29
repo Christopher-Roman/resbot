@@ -17,12 +17,12 @@ class ReservationsController < ApplicationController
       if @reservation.save
         redirect_to '/reservations', notice: "Reservation confirmed!"
       else
-        redirect_to '/reservations', warning: "Error occured during booking process, please try again."
+        redirect_to '/reservations', error: "Error occured during booking process, please try again."
       end
     elsif !table_id
-      redirect_to '/reservations', warning: "There are no tables available for the selected date and time."
+      redirect_to '/reservations', error: "There are no tables available for the selected date and time."
     else
-      redirect_to '/reservations', warning: "An error occurred after attempting to confirm reservation method"
+      redirect_to '/reservations', error: "An error occurred after attempting to confirm reservation method"
     end
   end
 
@@ -62,18 +62,23 @@ class ReservationsController < ApplicationController
     #Get all reservations tabletop IDs for specific date and time
     current_reservations = res_list_by(day, time)
 
+    #No reservations for selected day/time return first table that matches request
     if !current_reservations
       compatable_tables = tabletops_that_meet_requested(seats)
+      #No compatable tables, return falsy value to hit later logic
       if !compatable_tables
         return nil
       else
+        #Return first available table from array that meets request
         res_table_id = compatable_tables[0]
         return res_table_id
       end
+    #All tables are occupied for that time and day based on current reservations
     elsif current_reservations.length >= 10
       return nil
     else
-     #Get all compatable tables based on the party size
+     #remove all tables from the list that are in use by current reservations and return first available table
+     #that matches request
       compatable_tables = tabletops_that_meet_requested(seats)
       table_options = compatable_tables.reject do |i|
         current_reservations.include?(i)
@@ -82,28 +87,5 @@ class ReservationsController < ApplicationController
       return res_table_id
     end
   end
-
-
-
-
-  #   # No reservations booked during time/day
-  #   if !current_reservations
-  #     res_table_id = compatable_tables[0]
-  #     return res_table_id
-  #   # All tables are occupied during time/day
-  #   elsif current_reservations.length >= 10
-  #     return res_table_id
-  #   # Remove occupied tables from table array
-  #   else
-  #     # No compatable tables after dupes removed
-  #     if table_options === 0
-  #       return res_table_id
-  #     # Select first available table in table array
-  #     else
-  #       res_table_id = table_options[0]
-  #       return res_table_id
-  #     end
-  #   end
-  # end
   
 end
