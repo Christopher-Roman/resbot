@@ -30,3 +30,7 @@ body {
 #second-reservation-col {
 	text-align: center;
 }
+
+.required {
+	color: red;
+}

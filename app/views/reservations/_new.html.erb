@@ -1,21 +1,22 @@
 <div class="row" >
 	<%= form_for :reservation, url: reservations_path do |f| %>
 
-			<%= f.label "Name" %> <br>
-			<%= f.text_field(:res_name, {:name => 'res_name', :class => 'form-control', :placeholder => 'Party Name'}) %>
-			<br>
-			<%= f.label "Guests" %> <br>
-			<%= f.select :party_size, options_for_select([[1,1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8]]), {prompt: 'Choose one...'}, { :class => 'form-control', :name => 'party_size'} %>
-			<br>
+		<%= f.label "Name" %> <span class="required"> *</span> <br>
+		<%= f.text_field(:res_name, {:name => 'res_name', :class => 'form-control', :placeholder => 'Party Name'}) %>
+		<br>
+		<%= f.label "Guests" %> <span class="required"> *</span> <br>
+		<%= f.select :party_size, options_for_select([[1,1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8]]), {prompt: 'Choose one...'}, { :class => 'form-control', :name => 'party_size'} %>
+		<br>
 
-			<%= f.label "Day" %> <br>
-			<%= f.select :res_day, options_for_select([['Sat','Sat'], ['Sun', 'Sun'], ['Mon', 'Mon'], ['Tue', 'Tue'], ['Wed', 'Wed'], ['Thu', 'Thu'], ['Fri', 'Fri']]), {prompt: 'Choose one...'}, { :class => 'form-control', :name => 'res_day'} %>
-			<br>
-			<%= f.label "Time" %> <br>
-			<%= f.select(:res_time, options_for_select([['1AM','1AM'],['2AM','2AM'],['3AM', '3AM'],['4AM', '4AM'],['5AM', '5AM'],['6AM', '6AM'],['7AM', '7AM'],['8AM', '8AM'],['9AM','9AM'],['10AM', '10AM'],['11AM', '11AM'],['12AM', '12AM'],['1PM','1PM'],['2PM','2PM'],['3PM', '3PM'],['4PM', '4PM'],['5PM', '5PM'],['6PM', '6PM'],['7PM', '7PM'],['8PM', '8PM'],['9PM','9PM'],['10PM', '10PM'],['11PM', '11PM'],['12PM', '12PM']]), {prompt: 'Choose one...'}, { :class => 'form-control', :name => 'res_time'} )%>
-			<br>
-			<br>
-			<%= f.submit({:class => 'btn btn-secondary'})%>
+		<%= f.label "Day" %> <span class="required"> *</span> <br>
+		<%= f.select :res_day, options_for_select([['Sat','Sat'], ['Sun', 'Sun'], ['Mon', 'Mon'], ['Tue', 'Tue'], ['Wed', 'Wed'], ['Thu', 'Thu'], ['Fri', 'Fri']]), {prompt: 'Choose one...'}, { :class => 'form-control', :name => 'res_day'} %>
+		<br>
+		<%= f.label "Time" %> <span class="required"> *</span> <br>
+		<%= f.select(:res_time, options_for_select([['1AM','1AM'],['2AM','2AM'],['3AM', '3AM'],['4AM', '4AM'],['5AM', '5AM'],['6AM', '6AM'],['7AM', '7AM'],['8AM', '8AM'],['9AM','9AM'],['10AM', '10AM'],['11AM', '11AM'],['12AM', '12AM'],['1PM','1PM'],['2PM','2PM'],['3PM', '3PM'],['4PM', '4PM'],['5PM', '5PM'],['6PM', '6PM'],['7PM', '7PM'],['8PM', '8PM'],['9PM','9PM'],['10PM', '10PM'],['11PM', '11PM'],['12PM', '12PM']]), {prompt: 'Choose one...'}, { :class => 'form-control', :name => 'res_time'} )%>
+		<span class="required">*</span><span> Required fields</span>
+		<br>
+		<br>
+		<%= f.submit({:class => 'btn btn-secondary'})%><br>
 
 
 	<%end %>
