@@ -1,10 +1,6 @@
 body {
 	background-color: #555555;
-}
-
-body { 
-	background-image: url(<%= asset_path 'image.png' %>) 
-}
+} 
 
 #app-title {
 	text-align: center; 
